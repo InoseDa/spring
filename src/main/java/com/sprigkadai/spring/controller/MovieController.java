@@ -18,9 +18,9 @@ public class MovieController {
     @GetMapping("/movie")
     public List<Movie> getMovie(){
         List<Movie> movies = List.of(
-                new Movie(1,"鬼滅の刃 無限列車編", "外崎春雄", "日本", LocalDate.of(2020,10,16),
-                new Movie(2,"千と千尋の神隠し", "宮崎駿", "日本", LocalDate.of(2001,07,20),
-                new Movie(3,"タイタニック", "ジェームズ・キャメロン", "アメリカ", LocalDate.of(1997,12,20)
+                new Movie(1,"鬼滅の刃 無限列車編", "外崎春雄", "日本", LocalDate.of(2020,10,16)),
+                new Movie(2,"千と千尋の神隠し", "宮崎駿", "日本", LocalDate.of(2001,07,20)),
+                new Movie(3,"タイタニック", "ジェームズ・キャメロン", "アメリカ", LocalDate.of(1997,12,20))
         );
         return movies;
     }
