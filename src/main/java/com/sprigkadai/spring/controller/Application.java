@@ -1,4 +1,4 @@
-package com.sprigkadai.spring;
+package com.sprigkadai.spring.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
