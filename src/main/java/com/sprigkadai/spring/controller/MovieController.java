@@ -4,10 +4,10 @@ import com.sprigkadai.spring.controller.request.MovieCreateRequest;
 import com.sprigkadai.spring.controller.request.MovieUpdateRequest;
 import com.sprigkadai.spring.controller.response.MovieResponse;
 import com.sprigkadai.spring.controller.response.Movie;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
@@ -26,7 +26,7 @@ public class MovieController {
     }
 
     @PostMapping("/movie")
-    public ResponseEntity<MovieResponse> createMovie(@RequestBody MovieCreateRequest movieCreateRequest, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity<MovieResponse> createMovie(@RequestBody @Valid MovieCreateRequest movieCreateRequest, UriComponentsBuilder uriComponentsBuilder){
         URI uri = uriComponentsBuilder.path("/movie/{id}").buildAndExpand(1).toUri();
         return ResponseEntity.created(uri).body(new MovieResponse("a new movie is created!"));
     }
