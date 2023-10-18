@@ -3,22 +3,22 @@ package com.sprigkadai.spring.controller.request;
 import java.time.LocalDate;
 
 public class MovieUpdateRequest {
-    private final int id;
-    private final String title;
-    private final String filmDirector;
-    private final String country;
-    private final LocalDate releaseDay;
+    private int movieId;
+    private String title;
+    private String filmDirector;
+    private String country;
+    private LocalDate releaseDay;
 
-    public MovieUpdateRequest(int id, String title, String filmDirector, String country, LocalDate releaseDay) {
-        this.id = id;
+    public MovieUpdateRequest(int movieId, String title, String filmDirector, String country, LocalDate releaseDay) {
+        this.movieId = movieId;
         this.title = title;
         this.filmDirector = filmDirector;
         this.country = country;
         this.releaseDay = releaseDay;
     }
 
-    public int getId() {
-        return id;
+    public int getMovieId() {
+        return movieId;
     }
 
     public String getTitle() {
