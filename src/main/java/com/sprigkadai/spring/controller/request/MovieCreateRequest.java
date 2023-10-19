@@ -6,8 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class MovieCreateRequest {
-    @NotNull
-    private int movieId;
     @NotBlank
     private String title;
     @NotBlank
@@ -17,16 +15,11 @@ public class MovieCreateRequest {
     @NotNull
     private LocalDate releaseDay;
 
-    public MovieCreateRequest(int movieId, String title, String filmDirector, String country, LocalDate releaseDay) {
-        this.movieId = movieId;
+    public MovieCreateRequest(String title, String filmDirector, String country, LocalDate releaseDay) {
         this.title = title;
         this.filmDirector = filmDirector;
         this.country = country;
         this.releaseDay = releaseDay;
-    }
-
-    public int getMovieId() {
-        return movieId;
     }
 
     public String getTitle() {
