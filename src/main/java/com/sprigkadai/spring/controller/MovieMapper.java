@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 public interface MovieMapper {
 
-    @Select("SELECT name FROM movies")
+    @Select("SELECT * FROM movies")
     List<Movies> findAll();
 }
