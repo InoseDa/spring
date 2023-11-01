@@ -1,25 +1,24 @@
-package com.springkadai.spring.controller.request;
-
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+package com.springkadai.spring.form;
 
 import java.time.LocalDate;
 
-public class MovieCreateRequest {
-    @NotBlank
+public class MovieUpdateRequest {
+    private int movieId;
     private String title;
-    @NotBlank
     private String filmDirector;
-    @NotBlank
     private String country;
-    @NotNull
     private LocalDate releaseDay;
 
-    public MovieCreateRequest(String title, String filmDirector, String country, LocalDate releaseDay) {
+    public MovieUpdateRequest(int movieId, String title, String filmDirector, String country, LocalDate releaseDay) {
+        this.movieId = movieId;
         this.title = title;
         this.filmDirector = filmDirector;
         this.country = country;
         this.releaseDay = releaseDay;
+    }
+
+    public int getMovieId() {
+        return movieId;
     }
 
     public String getTitle() {

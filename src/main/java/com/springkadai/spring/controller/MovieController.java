@@ -1,8 +1,10 @@
 package com.springkadai.spring.controller;
 
-import com.springkadai.spring.controller.request.MovieCreateRequest;
-import com.springkadai.spring.controller.request.MovieUpdateRequest;
-import com.springkadai.spring.controller.response.MovieResponse;
+import com.springkadai.spring.service.MovieService;
+import com.springkadai.spring.entity.Movies;
+import com.springkadai.spring.form.MovieCreateRequest;
+import com.springkadai.spring.form.MovieUpdateRequest;
+import com.springkadai.spring.form.MovieResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

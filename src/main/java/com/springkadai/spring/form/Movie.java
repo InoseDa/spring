@@ -1,15 +1,15 @@
-package com.springkadai.spring.controller.request;
+package com.springkadai.spring.form;
 
 import java.time.LocalDate;
 
-public class MovieUpdateRequest {
+public class Movie {
     private int movieId;
     private String title;
     private String filmDirector;
     private String country;
     private LocalDate releaseDay;
 
-    public MovieUpdateRequest(int movieId, String title, String filmDirector, String country, LocalDate releaseDay) {
+    public Movie(int movieId, String title, String filmDirector, String country, LocalDate releaseDay) {
         this.movieId = movieId;
         this.title = title;
         this.filmDirector = filmDirector;

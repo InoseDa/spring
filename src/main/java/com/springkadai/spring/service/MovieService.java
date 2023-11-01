@@ -1,5 +1,7 @@
-package com.springkadai.spring.controller;
+package com.springkadai.spring.service;
 
+import com.springkadai.spring.mapper.MovieMapper;
+import com.springkadai.spring.entity.Movies;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

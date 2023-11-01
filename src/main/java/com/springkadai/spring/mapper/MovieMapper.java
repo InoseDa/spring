@@ -1,5 +1,6 @@
-package com.springkadai.spring.controller;
+package com.springkadai.spring.mapper;
 
+import com.springkadai.spring.entity.Movies;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
