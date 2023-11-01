@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class MovieController {
@@ -24,6 +25,12 @@ public class MovieController {
     public List<Movies> getMovie(){
         List<Movies> movies = movieService.getMovies();
         return movies;
+    }
+
+    @GetMapping("/movie/{id}")
+    public Optional<Movies> getMovieById(@PathVariable int id){
+        Optional<Movies> movies = movieService.findById(id);
+        return  movies;
     }
 
     @PostMapping("/movie")

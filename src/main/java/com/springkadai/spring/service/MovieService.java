@@ -5,6 +5,7 @@ import com.springkadai.spring.entity.Movies;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -17,5 +18,9 @@ public class MovieService {
     public List<Movies> getMovies(){
         List<Movies> movies = movieMapper.findAll();
         return movies;
+    }
+
+    public Optional<Movies> findById(int id){
+        return movieMapper.findById(id);
     }
 }
