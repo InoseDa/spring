@@ -1,6 +1,5 @@
-package com.sprigkadai.spring.controller;
+package com.springkadai.spring.controller;
 
-import com.sprigkadai.spring.controller.response.Movie;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

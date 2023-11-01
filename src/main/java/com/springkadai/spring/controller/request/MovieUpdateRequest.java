@@ -1,4 +1,4 @@
-package com.sprigkadai.spring.controller.request;
+package com.springkadai.spring.controller.request;
 
 import java.time.LocalDate;
 

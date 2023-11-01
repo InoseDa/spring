@@ -1,4 +1,4 @@
-package com.sprigkadai.spring.controller;
+package com.springkadai.spring.controller;
 
 public class Movies {
     private int id;

@@ -1,4 +1,4 @@
-package com.sprigkadai.spring.controller.response;
+package com.springkadai.spring.controller.response;
 
 public class MovieResponse {
     private final String message;

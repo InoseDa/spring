@@ -1,4 +1,4 @@
-package com.sprigkadai.spring.controller;
+package com.springkadai.spring.controller;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

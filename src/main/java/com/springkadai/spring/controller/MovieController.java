@@ -1,9 +1,8 @@
-package com.sprigkadai.spring.controller;
+package com.springkadai.spring.controller;
 
-import com.sprigkadai.spring.controller.request.MovieCreateRequest;
-import com.sprigkadai.spring.controller.request.MovieUpdateRequest;
-import com.sprigkadai.spring.controller.response.MovieResponse;
-import com.sprigkadai.spring.controller.response.Movie;
+import com.springkadai.spring.controller.request.MovieCreateRequest;
+import com.springkadai.spring.controller.request.MovieUpdateRequest;
+import com.springkadai.spring.controller.response.MovieResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

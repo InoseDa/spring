@@ -1,4 +1,4 @@
-package com.sprigkadai.spring.controller.request;
+package com.springkadai.spring.controller.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
