@@ -23,14 +23,12 @@ public class MovieController {
 
     @GetMapping("/movie")
     public List<Movies> getMovie(){
-        List<Movies> movies = movieService.getMovies();
-        return movies;
+        return movieService.getMovies();
     }
 
     @GetMapping("/movie/{id}")
     public Optional<Movies> getMovieById(@PathVariable int id){
-        Optional<Movies> movies = movieService.findById(id);
-        return  movies;
+        return movieService.findById(id);
     }
 
     @PostMapping("/movie")
