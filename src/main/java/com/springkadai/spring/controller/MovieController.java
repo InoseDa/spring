@@ -1,28 +1,34 @@
-package com.sprigkadai.spring.controller;
+package com.springkadai.spring.controller;
 
-import com.sprigkadai.spring.controller.request.MovieCreateRequest;
-import com.sprigkadai.spring.controller.request.MovieUpdateRequest;
-import com.sprigkadai.spring.controller.response.MovieResponse;
-import com.sprigkadai.spring.controller.response.Movie;
+import com.springkadai.spring.service.MovieService;
+import com.springkadai.spring.entity.Movies;
+import com.springkadai.spring.form.MovieCreateRequest;
+import com.springkadai.spring.form.MovieUpdateRequest;
+import com.springkadai.spring.form.MovieResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
-import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class MovieController {
+    private final MovieService movieService;
+
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
+    }
 
     @GetMapping("/movie")
-    public List<Movie> getMovie(){
-        List<Movie> movies = List.of(
-                new Movie(1,"鬼滅の刃 無限列車編", "外崎春雄", "日本", LocalDate.of(2020,10,16)),
-                new Movie(2,"千と千尋の神隠し", "宮崎駿", "日本", LocalDate.of(2001,07,20)),
-                new Movie(3,"タイタニック", "ジェームズ・キャメロン", "アメリカ", LocalDate.of(1997,12,20))
-        );
-        return movies;
+    public List<Movies> getMovie(){
+        return movieService.getMovies();
+    }
+
+    @GetMapping("/movie/{id}")
+    public Optional<Movies> getMovieById(@PathVariable int id){
+        return movieService.findById(id);
     }
 
     @PostMapping("/movie")
