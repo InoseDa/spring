@@ -13,7 +13,7 @@ public class MovieCreateRequest {
     @NotBlank
     private String country;
     @NotNull
-    private LocalDate releaseDay;
+    private final LocalDate releaseDay;
 
     public MovieCreateRequest(String title, String filmDirector, String country, LocalDate releaseDay) {
         this.title = title;
