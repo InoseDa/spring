@@ -1,8 +1,9 @@
 package com.springkadai.spring.controller;
 
+import com.springkadai.spring.form.Movie;
+import com.springkadai.spring.form.MovieCreateRequest;
 import com.springkadai.spring.service.MovieService;
 import com.springkadai.spring.entity.Movies;
-import com.springkadai.spring.form.MovieCreateRequest;
 import com.springkadai.spring.form.MovieUpdateRequest;
 import com.springkadai.spring.form.MovieResponse;
 import jakarta.validation.Valid;
@@ -32,8 +33,9 @@ public class MovieController {
     }
 
     @PostMapping("/movie")
-    public ResponseEntity<MovieResponse> createMovie(@RequestBody @Valid MovieCreateRequest movieCreateRequest, UriComponentsBuilder uriComponentsBuilder){
-        URI uri = uriComponentsBuilder.path("/movie/{id}").buildAndExpand(1).toUri();
+    public ResponseEntity<MovieResponse> createMovie(@RequestBody @Valid MovieCreateRequest movieCreateRequest, UriComponentsBuilder uriBuilder){
+        Movies movies = movieService.insert(movieCreateRequest.convertToMovie());
+        URI uri = uriBuilder.path("/movie/{id}").buildAndExpand(movies.getId()).toUri();
         return ResponseEntity.created(uri).body(new MovieResponse("a new movie is created!"));
     }
 

@@ -22,4 +22,9 @@ public class MovieService {
     public Optional<Movies> findById(int id){
         return movieMapper.findById(id);
     }
+
+    public Movies insert(Movies movies) {
+        movieMapper.insert(movies);
+        return movies;
+    }
 }
