@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
-import java.util.Optional;;
+import java.util.Optional;
 
 @Mapper
 public interface MovieMapper {
@@ -18,7 +18,7 @@ public interface MovieMapper {
     @Select("SELECT * FROM movies WHERE id = #{id}")
     Optional<Movies> findById(int id);
 
-    @Insert("INSERT INTO movies (name,director) VALUES (#{name},#{director}")
+    @Insert("INSERT INTO movies (name,director) VALUES (#{name},#{director})")
     @Options(useGeneratedKeys = true, keyColumn = "id")
     void insert(Movies movies);
 }

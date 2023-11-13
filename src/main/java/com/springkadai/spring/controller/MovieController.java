@@ -1,6 +1,5 @@
 package com.springkadai.spring.controller;
 
-import com.springkadai.spring.form.Movie;
 import com.springkadai.spring.form.MovieCreateRequest;
 import com.springkadai.spring.service.MovieService;
 import com.springkadai.spring.entity.Movies;
