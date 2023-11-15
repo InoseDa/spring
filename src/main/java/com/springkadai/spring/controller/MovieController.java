@@ -6,6 +6,7 @@ import com.springkadai.spring.entity.Movies;
 import com.springkadai.spring.form.MovieUpdateRequest;
 import com.springkadai.spring.form.MovieResponse;
 import jakarta.validation.Valid;
+import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -21,6 +22,7 @@ public class MovieController {
         this.movieService = movieService;
     }
 
+    //Read
     @GetMapping("/movie")
     public List<Movies> getMovie(){
         return movieService.getMovies();
@@ -31,6 +33,7 @@ public class MovieController {
         return movieService.findById(id);
     }
 
+    //Create
     @PostMapping("/movie")
     public ResponseEntity<MovieResponse> createMovie(@RequestBody @Valid MovieCreateRequest movieCreateRequest, UriComponentsBuilder uriBuilder){
         Movies movies = movieService.insert(movieCreateRequest.convertToMovie());
@@ -38,9 +41,17 @@ public class MovieController {
         return ResponseEntity.created(uri).body(new MovieResponse("a new movie is created!"));
     }
 
+    //Update
     @PatchMapping("/movie/{id}")
-    public MovieResponse updateMovie(@PathVariable int id, @RequestBody MovieUpdateRequest movieUpdateRequest){
-        return new MovieResponse("a movie is update!");
+    public ResponseEntity<MovieResponse> updateMovie(@PathVariable int id, @RequestBody MovieUpdateRequest movieUpdateRequest) throws NotFoundException {
+        try{
+            movieService.update(movieUpdateRequest.convertToMovie(id));
+            MovieResponse message = new MovieResponse("a movie is update!");
+            return ResponseEntity.ok(message);
+        } catch (NotFoundException e){
+            MovieResponse message = new MovieResponse("data not found");
+            return ResponseEntity.ok(message);
+        }
     }
 
     @DeleteMapping("/movie/{id}")
