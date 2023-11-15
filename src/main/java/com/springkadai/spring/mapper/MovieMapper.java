@@ -19,6 +19,6 @@ public interface MovieMapper {
     Optional<Movies> findById(int id);
 
     @Insert("INSERT INTO movies (name,director) VALUES (#{name},#{director})")
-    @Options(useGeneratedKeys = true, keyColumn = "id")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     void insert(Movies movies);
 }
