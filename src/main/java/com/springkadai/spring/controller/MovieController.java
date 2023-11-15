@@ -22,7 +22,6 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    //Read
     @GetMapping("/movie")
     public List<Movies> getMovie(){
         return movieService.getMovies();
@@ -33,7 +32,6 @@ public class MovieController {
         return movieService.findById(id);
     }
 
-    //Create
     @PostMapping("/movie")
     public ResponseEntity<MovieResponse> createMovie(@RequestBody @Valid MovieCreateRequest movieCreateRequest, UriComponentsBuilder uriBuilder){
         Movies movies = movieService.insert(movieCreateRequest.convertToMovie());
@@ -41,7 +39,6 @@ public class MovieController {
         return ResponseEntity.created(uri).body(new MovieResponse("a new movie is created!"));
     }
 
-    //Update
     @PatchMapping("/movie/{id}")
     public ResponseEntity<MovieResponse> updateMovie(@PathVariable int id, @RequestBody MovieUpdateRequest movieUpdateRequest) throws NotFoundException {
         try{
