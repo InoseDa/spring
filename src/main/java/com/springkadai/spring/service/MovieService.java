@@ -33,12 +33,8 @@ public class MovieService {
 
     //Update
     public Movies update(Movies movies) throws NotFoundException {
-        Optional<Movies> updateMovie = movieMapper.findById(movies.getId());
-        if (updateMovie.isPresent()) {
-            movieMapper.update(movies);
-        } else {
-            throw new NotFoundException("data not found");
-        }
+        this.movieMapper.findById(movies.getId()).orElseThrow(() -> new NotFoundException("Movie not found"));
+        movieMapper.update(movies);
         return movies;
     }
 }
