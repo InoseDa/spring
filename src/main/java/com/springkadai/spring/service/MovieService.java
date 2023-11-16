@@ -1,12 +1,11 @@
 package com.springkadai.spring.service;
 
 import com.springkadai.spring.mapper.MovieMapper;
-import com.springkadai.spring.entity.Movies;
+import com.springkadai.spring.entity.Movie;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -17,24 +16,24 @@ public class MovieService {
     }
 
     //Read
-    public List<Movies> getMovies(){
+    public List<Movie> getMovies(){
         return movieMapper.findAll();
     }
 
-    public Movies findById(int id) throws NotFoundException {
+    public Movie findById(int id) throws NotFoundException {
         return movieMapper.findById(id).orElseThrow(() -> new NotFoundException("Movie not found"));
     }
 
     //Create
-    public Movies insert(Movies movies) {
-        movieMapper.insert(movies);
-        return movies;
+    public Movie insert(Movie movie) {
+        movieMapper.insert(movie);
+        return movie;
     }
 
     //Update
-    public Movies update(Movies movies) throws NotFoundException {
-        this.movieMapper.findById(movies.getId()).orElseThrow(() -> new NotFoundException("Movie not found"));
-        movieMapper.update(movies);
-        return movies;
+    public Movie update(Movie movie) throws NotFoundException {
+        this.movieMapper.findById(movie.getId()).orElseThrow(() -> new NotFoundException("Movie not found"));
+        movieMapper.update(movie);
+        return movie;
     }
 }
