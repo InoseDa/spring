@@ -1,39 +1,26 @@
 package com.springkadai.spring.form;
 
-import java.time.LocalDate;
+import com.springkadai.spring.entity.Movie;
 
 public class MovieUpdateRequest {
-    private final int movieId;
-    private final String title;
-    private final String filmDirector;
-    private final String country;
-    private final LocalDate releaseDay;
+    private final String name;
+    private final String director;
 
-    public MovieUpdateRequest(int movieId, String title, String filmDirector, String country, LocalDate releaseDay) {
-        this.movieId = movieId;
-        this.title = title;
-        this.filmDirector = filmDirector;
-        this.country = country;
-        this.releaseDay = releaseDay;
+    public MovieUpdateRequest(String name, String director) {
+        this.name = name;
+        this.director = director;
     }
 
-    public int getMovieId() {
-        return movieId;
+    public Movie convertToMovie(int id) {
+        Movie movie = new Movie(id, name, director);
+        return movie;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public String getFilmDirector() {
-        return filmDirector;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public LocalDate getReleaseDay() {
-        return releaseDay;
+    public String getDirector() {
+        return director;
     }
 }

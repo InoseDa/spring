@@ -1,6 +1,6 @@
 package com.springkadai.spring.form;
 
-import com.springkadai.spring.entity.Movies;
+import com.springkadai.spring.entity.Movie;
 import jakarta.validation.constraints.NotBlank;
 
 public class MovieCreateRequest {
@@ -14,9 +14,9 @@ public class MovieCreateRequest {
         this.director = director;
     }
 
-    public Movies convertToMovie(){
-        Movies movies = new Movies(name, director);
-        return movies;
+    public Movie convertToMovie(){
+        Movie movie = new Movie(name, director);
+        return movie;
     }
 
     public String getName() {
