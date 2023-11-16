@@ -21,8 +21,8 @@ public class MovieService {
         return movieMapper.findAll();
     }
 
-    public Optional<Movies> findById(int id){
-        return movieMapper.findById(id);
+    public Movies findById(int id) throws NotFoundException {
+        return movieMapper.findById(id).orElseThrow(() -> new NotFoundException("Movie not found"));
     }
 
     //Create

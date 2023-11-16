@@ -32,7 +32,7 @@ public class MovieController {
     }
 
     @GetMapping("/movie/{id}")
-    public Optional<Movies> getMovieById(@PathVariable int id){
+    public Movies getMovieById(@PathVariable int id) throws NotFoundException {
         return movieService.findById(id);
     }
 
