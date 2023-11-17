@@ -15,7 +15,6 @@ public class MovieService {
         this.movieMapper = movieMapper;
     }
 
-    //Read
     public List<Movie> getMovies(){
         return movieMapper.findAll();
     }
@@ -24,16 +23,19 @@ public class MovieService {
         return movieMapper.findById(id).orElseThrow(() -> new NotFoundException("Movie not found"));
     }
 
-    //Create
     public Movie insert(Movie movie) {
         movieMapper.insert(movie);
         return movie;
     }
 
-    //Update
     public Movie update(Movie movie) throws NotFoundException {
-        this.movieMapper.findById(movie.getId()).orElseThrow(() -> new NotFoundException("Movie not found"));
+        movieMapper.findById(movie.getId()).orElseThrow(() -> new NotFoundException("Movie not found"));
         movieMapper.update(movie);
         return movie;
+    }
+
+    public void delete(int id) throws NotFoundException {
+        movieMapper.findById(id).orElseThrow(() -> new NotFoundException("Movie not found"));
+        movieMapper.delete(id);
     }
 }

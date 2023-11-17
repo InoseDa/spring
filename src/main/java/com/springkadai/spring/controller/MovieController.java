@@ -50,10 +50,11 @@ public class MovieController {
     }
 
     @DeleteMapping("/movie/{id}")
-    public MovieResponse deleteMovie(@PathVariable int id, @RequestBody MovieUpdateRequest movieDeleteRequest){
-        return new MovieResponse("a movie is deleted!");
+    public ResponseEntity<MovieResponse> deleteMovie(@PathVariable int id) throws NotFoundException {
+        movieService.delete(id);
+        MovieResponse message = new MovieResponse("a movie is deleted!");
+        return ResponseEntity.ok(message);
     }
-
     @ExceptionHandler(value = NotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNoResourceFound(
         NotFoundException e, HttpServletRequest request) {
