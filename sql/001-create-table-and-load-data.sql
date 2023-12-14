@@ -5,5 +5,5 @@ CREATE TABLE anime (
   PRIMARY KEY(id)
 );
 
-INSERT INTO movies (title, original_writer) VALUES ("ジョジョの奇妙な冒険", "荒木飛呂彦");
-INSERT INTO movies (title, original_writer) VALUES ("銀魂", "空知英秋");
+INSERT INTO anime (title, original_writer) VALUES ("ジョジョの奇妙な冒険", "荒木飛呂彦");
+INSERT INTO anime (title, original_writer) VALUES ("銀魂", "空知英秋");
