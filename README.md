@@ -26,9 +26,9 @@
 <details><summary>2. コード</summary><div>
     
  ```java
-@GetMapping("/movie")
+@GetMapping("/anime")
     public List<Movie> getMovie(){
-        return movieService.getMovies();
+        return animeService.getMovies();
     }
 ```
 </div></details>
@@ -40,9 +40,9 @@
 <details><summary>2. コード</summary><div>
     
 ```java
-@GetMapping("/movie/{id}")
+@GetMapping("/anime/{id}")
     public Movie getMovieById(@PathVariable int id) throws NotFoundException {
-        return movieService.findById(id);
+        return animeService.findById(id);
     }
 ```
 </div></details>
@@ -54,11 +54,11 @@
 <details><summary>2. コード</summary><div>
     
 ```java
-@PostMapping("/movie")
-    public ResponseEntity<MovieResponse> createMovie(@RequestBody @Valid MovieCreateRequest movieCreateRequest, UriComponentsBuilder uriBuilder){
-        Movie movie = movieService.insert(movieCreateRequest.convertToMovie());
-        URI uri = uriBuilder.path("/movie/{id}").buildAndExpand(movie.getId()).toUri();
-        return ResponseEntity.created(uri).body(new MovieResponse("a new movie is created!"));
+@PostMapping("/anime")
+    public ResponseEntity<MovieResponse> createMovie(@RequestBody @Valid MovieCreateRequest animeCreateRequest, UriComponentsBuilder uriBuilder){
+        Movie anime = animeService.insert(animeCreateRequest.convertToMovie());
+        URI uri = uriBuilder.path("/anime/{id}").buildAndExpand(anime.getId()).toUri();
+        return ResponseEntity.created(uri).body(new MovieResponse("a new anime is created!"));
     }
 ```
 </div></details>
@@ -70,10 +70,10 @@
 <details><summary>2. コード</summary><div>
   
 ```java
-@PatchMapping("/movie/{id}")
-    public ResponseEntity<MovieResponse> updateMovie(@PathVariable int id, @RequestBody MovieUpdateRequest movieUpdateRequest) throws NotFoundException {
-            movieService.update(movieUpdateRequest.convertToMovie(id));
-            MovieResponse message = new MovieResponse("a movie is update!");
+@PatchMapping("/anime/{id}")
+    public ResponseEntity<MovieResponse> updateMovie(@PathVariable int id, @RequestBody MovieUpdateRequest animeUpdateRequest) throws NotFoundException {
+            animeService.update(animeUpdateRequest.convertToMovie(id));
+            MovieResponse message = new MovieResponse("a anime is update!");
             return ResponseEntity.ok(message);
     }
 ```
@@ -86,10 +86,10 @@
 <details><summary>2. コード</summary><div>
   
 ```java
-@DeleteMapping("/movie/{id}")
+@DeleteMapping("/anime/{id}")
     public ResponseEntity<MovieResponse> deleteMovie(@PathVariable int id) throws NotFoundException {
-        movieService.delete(id);
-        MovieResponse message = new MovieResponse("a movie is deleted!");
+        animeService.delete(id);
+        MovieResponse message = new MovieResponse("a anime is deleted!");
         return ResponseEntity.ok(message);
     }
 ```

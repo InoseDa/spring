@@ -1,9 +1,9 @@
 package com.springkadai.spring.form;
 
-public class MovieResponse {
+public class AnimeResponse {
     private final String message;
 
-    public MovieResponse(String message) {
+    public AnimeResponse(String message) {
         this.message = message;
     }
 
