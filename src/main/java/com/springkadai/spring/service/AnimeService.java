@@ -28,10 +28,9 @@ public class AnimeService {
         return anime;
     }
 
-    public Anime update(Anime anime) throws NotFoundException {
+    public void update(Anime anime) throws NotFoundException {
         animeMapper.findById(anime.getId()).orElseThrow(() -> new NotFoundException("Anime not found"));
         animeMapper.update(anime);
-        return anime;
     }
 
     public void delete(int id) throws NotFoundException {
