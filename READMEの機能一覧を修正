@@ -24,10 +24,34 @@
 ||機能|詳細|その他|
 |:-:|:-:|----|:-:|
 |A|表示|登録したすべてのアニメを表示|
-|B|検索|URLで指定したidのアニメを表示|[^exception][^2]
+|B|検索|URLで指定したidのアニメを表示|下の◎を参照してください
 |C|登録|リクエストボディでアニメ情報を登録する|
-|D|更新|URLで指定したidのアニメ情報を更新する|[^exception][^2]
-|E|削除|URLで指定したidのアニメ情報を削除する|[^exception][^2]
+|D|更新|URLで指定したidのアニメ情報を更新する|下の◎を参照してください
+|E|削除|URLで指定したidのアニメ情報を削除する|下の◎を参照してください
+
+◎B,D,Eでリクエストを送信するとき、URLで存在しないidを指定するとステータスコード404、ボディで"Anime not found"を戻します。
+<details><summary> 動作</summary><div>
+
+下のキャプチャはBの機能で存在しないidを指定した時です。
+<img width="742" alt="スクリーンショット 2023-12-17 223531" src="https://github.com/InoseDa/spring/assets/132801866/5033023d-66a8-4d6a-9b29-203826fcd89d">
+
+</div></details>
+<details><summary>コード</summary><div>
+    
+ ```java
+@ExceptionHandler(value = NotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleNoResourceFound(
+        NotFoundException e, HttpServletRequest request) {
+        Map<String, String> body = Map.of(
+                "timestamp", ZonedDateTime.now().toString(),
+                "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
+                "error", HttpStatus.NOT_FOUND.getReasonPhrase(),
+                "message", e.getMessage(),
+                "path", request.getRequestURI());
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+```
+</div></details>
 
 ## 動作確認とコード
 ### A.表示
@@ -129,5 +153,4 @@
 
 ---
 
-[^exception]:B,D,Eでリクエストを送信するとき、URLで存在しないidを指定するとステータスコード404、ボディで"Anime not found"を戻します。下のキャプチャはBの機能で存在しないidを指定した時です。
-[^2]:<img width="742" alt="スクリーンショット 2023-12-17 223531" src="https://github.com/InoseDa/spring/assets/132801866/5033023d-66a8-4d6a-9b29-203826fcd89d">
+
