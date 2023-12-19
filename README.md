@@ -11,8 +11,7 @@
 - Java 17.0.6
 - SpringBoot 3.1.4
 - MyBatis
-- MySQL
-- Docker 8.0.34
+- MySQL 8.0.35
 - Docker 24.0.6
 
 ## アプリケーション概要図
